@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.0" client="site" method="upgrade">
+	<name>mod_competition_gallery</name>
+	<author>Zoe Slattery</author>
+	<creationDate>22/05/2026</creationDate>
+	<license>GNU General Public License version 3 or later; see license.txt</license>
+	<version>1.0.0</version>
+	<description>MOD_COMPETITION_GALLERY_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_competition_gallery">mod_competition_gallery.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+	</files>
+	<languages folder="language">
+    <language tag="en-GB">en-GB/en-GB.mod_competition_gallery.ini</language>
+    </languages>
+
+	<config>
+		
+        <fields name="params">
+            <fieldset name="basic" label="Basic">
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="Module Class Suffix"
+                />
+                <field
+                   name="competition_id"
+                   type="sql"
+                   label="Competition"
+                   description="Select the competition to display"
+                   query="SELECT id AS value, title AS text FROM #__competition_competitions ORDER BY id DESC"
+                   key_field="value"
+                   value_field="text"
+                   multiple="true"
+                   />
+
+               
+                
+            </fieldset>
+        </fields>
+	</config>
+</extension>
